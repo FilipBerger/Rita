@@ -13,18 +13,26 @@ namespace Rita
             picBox.Image = bitmap;
         }
 
-        Bitmap bitmap;
-        Graphics graphics;
-        bool isDrawing = false;
-        Point x, y;
-        Pen pen = new Pen(Color.Black, 1);
-        Pen eraser = new Pen(Color.White, 30);
-        int toolIndex = 0;
+        private Bitmap bitmap;
+        private Graphics graphics;
+        private bool isDrawing = false;
+        private Point startPoint, currentPoint;
+        private Pen pen = new Pen(Color.Black, 1);
+        private Pen eraser = new Pen(Color.White, 30);
+        private int toolIndex = 0;
+        private Shape? shape = null;
+
 
         private void picBox_MouseDown(object sender, MouseEventArgs e)
         {
             isDrawing = true;
-            y = e.Location;
+            startPoint = e.Location;
+            currentPoint = e.Location;
+
+            if (toolIndex == 2)
+            {
+                shape = new Circle { StartPoint = startPoint };
+            }
         }
 
         private void picBox_MouseMove(object sender, MouseEventArgs e)
@@ -33,15 +41,19 @@ namespace Rita
             {
                 if (toolIndex == 0)
                 {
-                    x = e.Location;
-                    graphics.DrawLine(pen, x, y);
-                    y = x;
+                    startPoint = e.Location;
+                    graphics.DrawLine(pen, startPoint, currentPoint);
+                    currentPoint = startPoint;
                 }
                 if (toolIndex == 1)
                 {
-                    x = e.Location;
-                    graphics.DrawLine(eraser, x, y);
-                    y = x;
+                    startPoint = e.Location;
+                    graphics.DrawLine(eraser, startPoint, currentPoint);
+                    currentPoint = startPoint;
+                }
+                if (shape != null)
+                {
+                    shape.EndPoint = e.Location;
                 }
             }
             picBox.Refresh();
@@ -50,6 +62,12 @@ namespace Rita
         private void picBox_MouseUp(object sender, MouseEventArgs e)
         {
             isDrawing = false;
+
+            if (shape != null)
+            {
+                shape.Draw(graphics, pen);
+                shape = null;
+            }
         }
 
         private void btnPen_Click(object sender, EventArgs e)
@@ -112,6 +130,19 @@ namespace Rita
         {
             graphics.Clear(Color.White);
             picBox.Refresh();
+        }
+
+        private void btnCircle_Click(object sender, EventArgs e)
+        {
+            toolIndex = 2;
+        }
+
+        private void picBox_Paint(object sender, PaintEventArgs e)
+        {
+            if (shape != null && isDrawing)
+            {
+                shape.Draw(e.Graphics, pen);
+            }
         }
     }
 }
