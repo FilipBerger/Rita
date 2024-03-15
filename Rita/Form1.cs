@@ -38,6 +38,11 @@ namespace Rita
             {
                 shape = new Square { StartPoint = startPoint };
             }
+
+            if (toolIndex == 4)
+            {
+                shape = new Triangle { StartPoint = startPoint };
+            }
         }
 
         private void picBox_MouseMove(object sender, MouseEventArgs e)
@@ -153,6 +158,11 @@ namespace Rita
         private void btnSquare_Click(object sender, EventArgs e)
         {
             toolIndex = 3;
+        }
+
+        private void btnTriangle_Click(object sender, EventArgs e)
+        {
+            toolIndex = 4;
         }
     }
 }
