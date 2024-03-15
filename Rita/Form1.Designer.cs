@@ -96,13 +96,13 @@
             // Undo
             // 
             Undo.Name = "Undo";
-            Undo.Size = new Size(128, 26);
+            Undo.Size = new Size(224, 26);
             Undo.Text = "Undo";
             // 
             // Redo
             // 
             Redo.Name = "Redo";
-            Redo.Size = new Size(128, 26);
+            Redo.Size = new Size(224, 26);
             Redo.Text = "Redo";
             // 
             // toolStrip1

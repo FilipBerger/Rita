@@ -21,7 +21,14 @@ namespace Rita
         private Pen eraser = new Pen(Color.White, 30);
         private int toolIndex = 0;
         private Shape? shape = null;
+        private Stack<Bitmap> undoStack = new Stack<Bitmap>();
+        private Stack<Bitmap> redoStack = new Stack<Bitmap>();
 
+        private void CopyBitmapForUndo()
+        {
+            Bitmap copy = (Bitmap)bitmap.Clone();
+            undoStack.Push(copy);
+        }
 
         private void picBox_MouseDown(object sender, MouseEventArgs e)
         {
