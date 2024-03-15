@@ -108,7 +108,7 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(20, 20);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnBlack, btnRed, btnOrange, btnYellow, btnGreen, btnCyan, btnBlue, btnMagenta, btnElipse, btnRectangle, btnTriangle, btnPen, toolStripButton2, btnClear });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnBlack, btnRed, btnOrange, btnYellow, btnGreen, btnCyan, btnBlue, btnMagenta, btnPen, toolStripButton2, btnElipse, btnRectangle, btnTriangle, btnClear });
             toolStrip1.Location = new Point(0, 28);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(800, 27);

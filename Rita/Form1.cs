@@ -1,3 +1,5 @@
+using System.Drawing;
+
 namespace Rita
 {
     public partial class Rita : Form
@@ -60,52 +62,50 @@ namespace Rita
             toolIndex = 1;
         }
 
+        private void ChangePenColor(Color color)
+        {
+            if (pen != null) pen.Dispose();
+            pen = new Pen(color, 1);
+        }
+
         private void btnBlack_Click(object sender, EventArgs e)
         {
-            Pen newPen = new Pen(Color.Black, 1);
-            pen = newPen;
+            ChangePenColor(Color.Black);
         }
 
         private void btnRed_Click(object sender, EventArgs e)
         {
-            Pen newPen = new Pen(Color.Red, 1);
-            pen = newPen;
+            ChangePenColor(Color.Red);
         }
 
         private void btnOrange_Click(object sender, EventArgs e)
         {
-            Pen newPen = new Pen(Color.Orange, 1);
-            pen = newPen;
+            ChangePenColor(Color.Orange);
         }
 
         private void btnYellow_Click(object sender, EventArgs e)
         {
-            Pen newPen = new Pen(Color.Yellow, 1);
-            pen = newPen;
+            ChangePenColor(Color.Yellow);
         }
 
         private void btnGreen_Click(object sender, EventArgs e)
         {
-            Pen newPen = new Pen(Color.Lime, 1);
-            pen = newPen;
+            ChangePenColor(Color.Lime);
         }
 
         private void btnCyan_Click(object sender, EventArgs e)
         {
-            Pen newPen = new Pen(Color.Cyan, 1);
-            pen = newPen;
+            ChangePenColor(Color.Cyan);
         }
 
         private void btnBlue_Click(object sender, EventArgs e)
         {
-            Pen newPen = new Pen(Color.Blue, 1);
-            pen = newPen;
+            ChangePenColor(Color.Blue);
         }
 
         private void btnMagenta_Click(object sender, EventArgs e)
         {
-            Pen newPen = new Pen(Color.Magenta, 1);
-            pen = newPen;
+            ChangePenColor(Color.Magenta);
         }
 
         private void btnClear_Click(object sender, EventArgs e)
