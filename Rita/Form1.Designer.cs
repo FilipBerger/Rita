@@ -45,11 +45,11 @@
             btnCyan = new ToolStripButton();
             btnBlue = new ToolStripButton();
             btnMagenta = new ToolStripButton();
-            btnElipse = new ToolStripButton();
-            btnRectangle = new ToolStripButton();
-            btnTriangle = new ToolStripButton();
             btnPen = new ToolStripButton();
             toolStripButton2 = new ToolStripButton();
+            btnCircle = new ToolStripButton();
+            btnRectangle = new ToolStripButton();
+            btnTriangle = new ToolStripButton();
             btnClear = new ToolStripButton();
             picBox = new PictureBox();
             menuStrip1.SuspendLayout();
@@ -108,7 +108,7 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(20, 20);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnBlack, btnRed, btnOrange, btnYellow, btnGreen, btnCyan, btnBlue, btnMagenta, btnPen, toolStripButton2, btnElipse, btnRectangle, btnTriangle, btnClear });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnBlack, btnRed, btnOrange, btnYellow, btnGreen, btnCyan, btnBlue, btnMagenta, btnPen, toolStripButton2, btnCircle, btnRectangle, btnTriangle, btnClear });
             toolStrip1.Location = new Point(0, 28);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(800, 27);
@@ -196,31 +196,6 @@
             btnMagenta.Text = "Change color to magenta";
             btnMagenta.Click += btnMagenta_Click;
             // 
-            // btnElipse
-            // 
-            btnElipse.Image = (Image)resources.GetObject("btnElipse.Image");
-            btnElipse.ImageTransparentColor = Color.Magenta;
-            btnElipse.Name = "btnElipse";
-            btnElipse.Size = new Size(72, 24);
-            btnElipse.Text = "Elipse";
-            btnElipse.TextDirection = ToolStripTextDirection.Horizontal;
-            // 
-            // btnRectangle
-            // 
-            btnRectangle.Image = (Image)resources.GetObject("btnRectangle.Image");
-            btnRectangle.ImageTransparentColor = Color.Magenta;
-            btnRectangle.Name = "btnRectangle";
-            btnRectangle.Size = new Size(99, 24);
-            btnRectangle.Text = "Rectangle";
-            // 
-            // btnTriangle
-            // 
-            btnTriangle.Image = (Image)resources.GetObject("btnTriangle.Image");
-            btnTriangle.ImageTransparentColor = Color.Magenta;
-            btnTriangle.Name = "btnTriangle";
-            btnTriangle.Size = new Size(86, 24);
-            btnTriangle.Text = "Triangle";
-            // 
             // btnPen
             // 
             btnPen.Image = (Image)resources.GetObject("btnPen.Image");
@@ -238,6 +213,32 @@
             toolStripButton2.Size = new Size(73, 24);
             toolStripButton2.Text = "Eraser";
             toolStripButton2.Click += toolStripButton2_Click;
+            // 
+            // btnCircle
+            // 
+            btnCircle.Image = (Image)resources.GetObject("btnCircle.Image");
+            btnCircle.ImageTransparentColor = Color.Magenta;
+            btnCircle.Name = "btnCircle";
+            btnCircle.Size = new Size(70, 24);
+            btnCircle.Text = "Circle";
+            btnCircle.TextDirection = ToolStripTextDirection.Horizontal;
+            btnCircle.Click += btnCircle_Click;
+            // 
+            // btnRectangle
+            // 
+            btnRectangle.Image = (Image)resources.GetObject("btnRectangle.Image");
+            btnRectangle.ImageTransparentColor = Color.Magenta;
+            btnRectangle.Name = "btnRectangle";
+            btnRectangle.Size = new Size(99, 24);
+            btnRectangle.Text = "Rectangle";
+            // 
+            // btnTriangle
+            // 
+            btnTriangle.Image = (Image)resources.GetObject("btnTriangle.Image");
+            btnTriangle.ImageTransparentColor = Color.Magenta;
+            btnTriangle.Name = "btnTriangle";
+            btnTriangle.Size = new Size(86, 24);
+            btnTriangle.Text = "Triangle";
             // 
             // btnClear
             // 
@@ -257,6 +258,7 @@
             picBox.Size = new Size(776, 369);
             picBox.TabIndex = 2;
             picBox.TabStop = false;
+            picBox.Paint += picBox_Paint;
             picBox.MouseDown += picBox_MouseDown;
             picBox.MouseMove += picBox_MouseMove;
             picBox.MouseUp += picBox_MouseUp;
@@ -296,7 +298,7 @@
         private ToolStripButton btnCyan;
         private ToolStripButton btnBlue;
         private ToolStripButton btnMagenta;
-        private ToolStripButton btnElipse;
+        private ToolStripButton btnCircle;
         private ToolStripButton btnRectangle;
         private ToolStripButton btnTriangle;
         private ToolStripMenuItem Edit;

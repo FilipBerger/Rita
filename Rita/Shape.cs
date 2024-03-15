@@ -8,8 +8,9 @@ namespace Rita
 {
     public abstract class Shape
     {
-        public string TypeID { get; protected set; }
+        public Point StartPoint { get; set; }
+        public Point EndPoint { get; set; }
 
-        public abstract void Draw(Graphics g);
+        public abstract void Draw(Graphics graphics, Pen pen);
     }
 }
