@@ -8,9 +8,7 @@ namespace Rita
 
             bitmap = new Bitmap(picBox.Width, picBox.Height);
             graphics = Graphics.FromImage(bitmap);
-            graphics.Clear(Color.White);
             picBox.Image = bitmap;
-
         }
 
         Bitmap bitmap;
@@ -108,6 +106,12 @@ namespace Rita
         {
             Pen newPen = new Pen(Color.Magenta, 1);
             pen = newPen;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            graphics.Clear(Color.White);
+            picBox.Refresh();
         }
     }
 }
