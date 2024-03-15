@@ -18,6 +18,7 @@ namespace Rita
         bool isDrawing = false;
         Point x, y;
         Pen pen = new Pen(Color.Black, 1);
+        Pen eraser = new Pen(Color.White, 30);
         int index = 0;
 
         private void picBox_MouseDown(object sender, MouseEventArgs e)
@@ -36,6 +37,12 @@ namespace Rita
                     graphics.DrawLine(pen, x, y);
                     y = x;
                 }
+                if (index == 1)
+                {
+                    x = e.Location;
+                    graphics.DrawLine(eraser, x, y);
+                    y = x;
+                }
             }
             picBox.Refresh();
         }
@@ -43,6 +50,16 @@ namespace Rita
         private void picBox_MouseUp(object sender, MouseEventArgs e)
         {
             isDrawing = false;
+        }
+
+        private void btnPen_Click(object sender, EventArgs e)
+        {
+            index = 0;
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            index = 1;
         }
     }
 }

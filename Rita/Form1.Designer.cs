@@ -219,6 +219,7 @@
             btnPen.Name = "btnPen";
             btnPen.Size = new Size(56, 24);
             btnPen.Text = "Pen";
+            btnPen.Click += btnPen_Click;
             // 
             // toolStripButton2
             // 
@@ -227,6 +228,7 @@
             toolStripButton2.Name = "toolStripButton2";
             toolStripButton2.Size = new Size(73, 24);
             toolStripButton2.Text = "Eraser";
+            toolStripButton2.Click += toolStripButton2_Click;
             // 
             // picBox
             // 
