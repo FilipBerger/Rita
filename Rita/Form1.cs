@@ -33,6 +33,11 @@ namespace Rita
             {
                 shape = new Circle { StartPoint = startPoint };
             }
+
+            if (toolIndex == 3)
+            {
+                shape = new Square { StartPoint = startPoint };
+            }
         }
 
         private void picBox_MouseMove(object sender, MouseEventArgs e)
@@ -143,6 +148,11 @@ namespace Rita
             {
                 shape.Draw(e.Graphics, pen);
             }
+        }
+
+        private void btnSquare_Click(object sender, EventArgs e)
+        {
+            toolIndex = 3;
         }
     }
 }

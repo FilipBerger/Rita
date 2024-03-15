@@ -48,7 +48,7 @@
             btnPen = new ToolStripButton();
             toolStripButton2 = new ToolStripButton();
             btnCircle = new ToolStripButton();
-            btnRectangle = new ToolStripButton();
+            btnSquare = new ToolStripButton();
             btnTriangle = new ToolStripButton();
             btnClear = new ToolStripButton();
             picBox = new PictureBox();
@@ -108,7 +108,7 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(20, 20);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnBlack, btnRed, btnOrange, btnYellow, btnGreen, btnCyan, btnBlue, btnMagenta, btnPen, toolStripButton2, btnCircle, btnRectangle, btnTriangle, btnClear });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnBlack, btnRed, btnOrange, btnYellow, btnGreen, btnCyan, btnBlue, btnMagenta, btnPen, toolStripButton2, btnCircle, btnSquare, btnTriangle, btnClear });
             toolStrip1.Location = new Point(0, 28);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(800, 27);
@@ -224,13 +224,14 @@
             btnCircle.TextDirection = ToolStripTextDirection.Horizontal;
             btnCircle.Click += btnCircle_Click;
             // 
-            // btnRectangle
+            // btnSquare
             // 
-            btnRectangle.Image = (Image)resources.GetObject("btnRectangle.Image");
-            btnRectangle.ImageTransparentColor = Color.Magenta;
-            btnRectangle.Name = "btnRectangle";
-            btnRectangle.Size = new Size(99, 24);
-            btnRectangle.Text = "Rectangle";
+            btnSquare.Image = (Image)resources.GetObject("btnSquare.Image");
+            btnSquare.ImageTransparentColor = Color.Magenta;
+            btnSquare.Name = "btnSquare";
+            btnSquare.Size = new Size(79, 24);
+            btnSquare.Text = "Square";
+            btnSquare.Click += btnSquare_Click;
             // 
             // btnTriangle
             // 
@@ -299,7 +300,7 @@
         private ToolStripButton btnBlue;
         private ToolStripButton btnMagenta;
         private ToolStripButton btnCircle;
-        private ToolStripButton btnRectangle;
+        private ToolStripButton btnSquare;
         private ToolStripButton btnTriangle;
         private ToolStripMenuItem Edit;
         private ToolStripMenuItem Undo;
