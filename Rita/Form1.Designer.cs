@@ -50,6 +50,7 @@
             btnTriangle = new ToolStripButton();
             btnPen = new ToolStripButton();
             toolStripButton2 = new ToolStripButton();
+            btnClear = new ToolStripButton();
             picBox = new PictureBox();
             menuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -107,7 +108,7 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(20, 20);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnBlack, btnRed, btnOrange, btnYellow, btnGreen, btnCyan, btnBlue, btnMagenta, btnElipse, btnRectangle, btnTriangle, btnPen, toolStripButton2 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnBlack, btnRed, btnOrange, btnYellow, btnGreen, btnCyan, btnBlue, btnMagenta, btnElipse, btnRectangle, btnTriangle, btnPen, toolStripButton2, btnClear });
             toolStrip1.Location = new Point(0, 28);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(800, 27);
@@ -238,6 +239,15 @@
             toolStripButton2.Text = "Eraser";
             toolStripButton2.Click += toolStripButton2_Click;
             // 
+            // btnClear
+            // 
+            btnClear.Image = (Image)resources.GetObject("btnClear.Image");
+            btnClear.ImageTransparentColor = Color.Magenta;
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(67, 24);
+            btnClear.Text = "Clear";
+            btnClear.Click += btnClear_Click;
+            // 
             // picBox
             // 
             picBox.BackColor = Color.White;
@@ -295,5 +305,6 @@
         private PictureBox picBox;
         private ToolStripButton btnPen;
         private ToolStripButton toolStripButton2;
+        private ToolStripButton btnClear;
     }
 }
