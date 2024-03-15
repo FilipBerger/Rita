@@ -122,7 +122,8 @@
             btnBlack.ImageTransparentColor = Color.Magenta;
             btnBlack.Name = "btnBlack";
             btnBlack.Size = new Size(29, 24);
-            btnBlack.Text = "toolStripButton1";
+            btnBlack.Text = "Change color to black";
+            btnBlack.Click += btnBlack_Click;
             // 
             // btnRed
             // 
@@ -131,7 +132,8 @@
             btnRed.ImageTransparentColor = Color.Magenta;
             btnRed.Name = "btnRed";
             btnRed.Size = new Size(29, 24);
-            btnRed.Text = "toolStripButton2";
+            btnRed.Text = "Change color to red";
+            btnRed.Click += btnRed_Click;
             // 
             // btnOrange
             // 
@@ -140,7 +142,8 @@
             btnOrange.ImageTransparentColor = Color.Magenta;
             btnOrange.Name = "btnOrange";
             btnOrange.Size = new Size(29, 24);
-            btnOrange.Text = "toolStripButton3";
+            btnOrange.Text = "Change color to orange";
+            btnOrange.Click += btnOrange_Click;
             // 
             // btnYellow
             // 
@@ -149,7 +152,8 @@
             btnYellow.ImageTransparentColor = Color.Magenta;
             btnYellow.Name = "btnYellow";
             btnYellow.Size = new Size(29, 24);
-            btnYellow.Text = "toolStripButton4";
+            btnYellow.Text = "Change color to yellow";
+            btnYellow.Click += btnYellow_Click;
             // 
             // btnGreen
             // 
@@ -158,7 +162,8 @@
             btnGreen.ImageTransparentColor = Color.Magenta;
             btnGreen.Name = "btnGreen";
             btnGreen.Size = new Size(29, 24);
-            btnGreen.Text = "toolStripButton5";
+            btnGreen.Text = "Change color to green";
+            btnGreen.Click += btnGreen_Click;
             // 
             // btnCyan
             // 
@@ -167,7 +172,8 @@
             btnCyan.ImageTransparentColor = Color.Magenta;
             btnCyan.Name = "btnCyan";
             btnCyan.Size = new Size(29, 24);
-            btnCyan.Text = "toolStripButton6";
+            btnCyan.Text = "Change color to cyan";
+            btnCyan.Click += btnCyan_Click;
             // 
             // btnBlue
             // 
@@ -176,7 +182,8 @@
             btnBlue.ImageTransparentColor = Color.Magenta;
             btnBlue.Name = "btnBlue";
             btnBlue.Size = new Size(29, 24);
-            btnBlue.Text = "toolStripButton7";
+            btnBlue.Text = "Change color to blue";
+            btnBlue.Click += btnBlue_Click;
             // 
             // btnMagenta
             // 
@@ -185,7 +192,8 @@
             btnMagenta.ImageTransparentColor = Color.Magenta;
             btnMagenta.Name = "btnMagenta";
             btnMagenta.Size = new Size(29, 24);
-            btnMagenta.Text = "toolStripButton8";
+            btnMagenta.Text = "Change color to magenta";
+            btnMagenta.Click += btnMagenta_Click;
             // 
             // btnElipse
             // 
