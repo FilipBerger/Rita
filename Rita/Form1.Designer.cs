@@ -240,6 +240,7 @@
             btnTriangle.Name = "btnTriangle";
             btnTriangle.Size = new Size(86, 24);
             btnTriangle.Text = "Triangle";
+            btnTriangle.Click += btnTriangle_Click;
             // 
             // btnClear
             // 
