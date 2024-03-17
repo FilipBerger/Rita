@@ -77,13 +77,13 @@
             // Save
             // 
             Save.Name = "Save";
-            Save.Size = new Size(128, 26);
+            Save.Size = new Size(224, 26);
             Save.Text = "Save";
             // 
             // Open
             // 
             Open.Name = "Open";
-            Open.Size = new Size(128, 26);
+            Open.Size = new Size(224, 26);
             Open.Text = "Open";
             // 
             // Edit
@@ -98,6 +98,7 @@
             Undo.Name = "Undo";
             Undo.Size = new Size(224, 26);
             Undo.Text = "Undo";
+            Undo.Click += Undo_Click;
             // 
             // Redo
             // 

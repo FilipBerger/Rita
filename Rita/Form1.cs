@@ -30,8 +30,29 @@ namespace Rita
             undoStack.Push(copy);
         }
 
+        private void PerformUndo()
+        {
+            if (undoStack.Count > 0)
+            {
+                redoStack.Push((Bitmap)bitmap.Clone());
+                bitmap.Dispose();
+                bitmap = undoStack.Pop();
+                graphics = Graphics.FromImage(bitmap);
+                picBox.Image = bitmap;
+                picBox.Refresh();
+            }
+        }
+
+        private void PerformRedo()
+        {
+
+        }
+
         private void picBox_MouseDown(object sender, MouseEventArgs e)
         {
+
+            CopyBitmapForUndo();
+
             isDrawing = true;
             startPoint = e.Location;
             currentPoint = e.Location;
@@ -145,6 +166,8 @@ namespace Rita
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            CopyBitmapForUndo();
+
             graphics.Clear(Color.White);
             picBox.Refresh();
         }
@@ -170,6 +193,11 @@ namespace Rita
         private void btnTriangle_Click(object sender, EventArgs e)
         {
             toolIndex = 4;
+        }
+
+        private void Undo_Click(object sender, EventArgs e)
+        {
+            PerformUndo();
         }
     }
 }
