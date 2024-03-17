@@ -21,10 +21,46 @@ namespace Rita
         private Pen eraser = new Pen(Color.White, 30);
         private int toolIndex = 0;
         private Shape? shape = null;
+        private Stack<Bitmap> undoStack = new Stack<Bitmap>();
+        private Stack<Bitmap> redoStack = new Stack<Bitmap>();
 
+        private void CopyBitmapForUndo()
+        {
+            Bitmap copy = (Bitmap)bitmap.Clone();
+            undoStack.Push(copy);
+        }
+
+        private void PerformUndo()
+        {
+            if (undoStack.Count > 0)
+            {
+                redoStack.Push((Bitmap)bitmap.Clone());
+                bitmap.Dispose();
+                bitmap = undoStack.Pop();
+                graphics = Graphics.FromImage(bitmap);
+                picBox.Image = bitmap;
+                picBox.Refresh();
+            }
+        }
+
+        private void PerformRedo()
+        {
+            if (redoStack.Count > 0)
+            {
+                undoStack.Push((Bitmap)bitmap.Clone());
+                bitmap.Dispose();
+                bitmap = redoStack.Pop();
+                graphics = Graphics.FromImage(bitmap);
+                picBox.Image = bitmap;
+                picBox.Refresh();
+            }
+        }
 
         private void picBox_MouseDown(object sender, MouseEventArgs e)
         {
+
+            CopyBitmapForUndo();
+
             isDrawing = true;
             startPoint = e.Location;
             currentPoint = e.Location;
@@ -138,6 +174,8 @@ namespace Rita
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            CopyBitmapForUndo();
+
             graphics.Clear(Color.White);
             picBox.Refresh();
         }
@@ -163,6 +201,16 @@ namespace Rita
         private void btnTriangle_Click(object sender, EventArgs e)
         {
             toolIndex = 4;
+        }
+
+        private void Undo_Click(object sender, EventArgs e)
+        {
+            PerformUndo();
+        }
+
+        private void Redo_Click(object sender, EventArgs e)
+        {
+            PerformRedo();
         }
     }
 }

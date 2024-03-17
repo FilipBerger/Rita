@@ -96,14 +96,18 @@
             // Undo
             // 
             Undo.Name = "Undo";
-            Undo.Size = new Size(128, 26);
+            Undo.ShortcutKeys = Keys.Control | Keys.Z;
+            Undo.Size = new Size(224, 26);
             Undo.Text = "Undo";
+            Undo.Click += Undo_Click;
             // 
             // Redo
             // 
             Redo.Name = "Redo";
-            Redo.Size = new Size(128, 26);
+            Redo.ShortcutKeys = Keys.Control | Keys.Y;
+            Redo.Size = new Size(224, 26);
             Redo.Text = "Redo";
+            Redo.Click += Redo_Click;
             // 
             // toolStrip1
             // 
