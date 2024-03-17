@@ -77,14 +77,18 @@
             // Save
             // 
             Save.Name = "Save";
-            Save.Size = new Size(128, 26);
+            Save.ShortcutKeys = Keys.Control | Keys.S;
+            Save.Size = new Size(224, 26);
             Save.Text = "Save";
+            Save.Click += Save_Click;
             // 
             // Open
             // 
             Open.Name = "Open";
-            Open.Size = new Size(128, 26);
+            Open.ShortcutKeys = Keys.Control | Keys.O;
+            Open.Size = new Size(224, 26);
             Open.Text = "Open";
+            Open.Click += Open_Click;
             // 
             // Edit
             // 
@@ -97,7 +101,7 @@
             // 
             Undo.Name = "Undo";
             Undo.ShortcutKeys = Keys.Control | Keys.Z;
-            Undo.Size = new Size(224, 26);
+            Undo.Size = new Size(179, 26);
             Undo.Text = "Undo";
             Undo.Click += Undo_Click;
             // 
@@ -105,7 +109,7 @@
             // 
             Redo.Name = "Redo";
             Redo.ShortcutKeys = Keys.Control | Keys.Y;
-            Redo.Size = new Size(224, 26);
+            Redo.Size = new Size(179, 26);
             Redo.Text = "Redo";
             Redo.Click += Redo_Click;
             // 

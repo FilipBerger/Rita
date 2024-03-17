@@ -58,7 +58,6 @@ namespace Rita
 
         private void picBox_MouseDown(object sender, MouseEventArgs e)
         {
-
             CopyBitmapForUndo();
 
             isDrawing = true;
@@ -211,6 +210,40 @@ namespace Rita
         private void Redo_Click(object sender, EventArgs e)
         {
             PerformRedo();
+        }
+
+        private void Save_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "PNG Image|*.png|JPEG Image|*.jpg|Bitmap Image|*.bmp";
+                saveFileDialog.Title = "Save an Image File";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    bitmap.Save(saveFileDialog.FileName);
+                }
+            }
+        }
+
+        private void Open_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Image Files|*.png;*.jpg;*.bmp";
+                openFileDialog.Title = "Open an Image File";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    Bitmap loadedImage = new Bitmap(openFileDialog.FileName);
+
+                    if (bitmap != null)
+                    bitmap.Dispose();
+                    bitmap = loadedImage;
+                    graphics = Graphics.FromImage(bitmap);
+                    picBox.Image = bitmap;
+                    picBox.Refresh();
+                }
+            }
         }
     }
 }
