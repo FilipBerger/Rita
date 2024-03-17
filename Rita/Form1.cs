@@ -45,7 +45,15 @@ namespace Rita
 
         private void PerformRedo()
         {
-
+            if (redoStack.Count > 0)
+            {
+                undoStack.Push((Bitmap)bitmap.Clone());
+                bitmap.Dispose();
+                bitmap = redoStack.Pop();
+                graphics = Graphics.FromImage(bitmap);
+                picBox.Image = bitmap;
+                picBox.Refresh();
+            }
         }
 
         private void picBox_MouseDown(object sender, MouseEventArgs e)
@@ -198,6 +206,11 @@ namespace Rita
         private void Undo_Click(object sender, EventArgs e)
         {
             PerformUndo();
+        }
+
+        private void Redo_Click(object sender, EventArgs e)
+        {
+            PerformRedo();
         }
     }
 }

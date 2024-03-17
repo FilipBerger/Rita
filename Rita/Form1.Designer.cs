@@ -77,13 +77,13 @@
             // Save
             // 
             Save.Name = "Save";
-            Save.Size = new Size(224, 26);
+            Save.Size = new Size(128, 26);
             Save.Text = "Save";
             // 
             // Open
             // 
             Open.Name = "Open";
-            Open.Size = new Size(224, 26);
+            Open.Size = new Size(128, 26);
             Open.Text = "Open";
             // 
             // Edit
@@ -96,6 +96,7 @@
             // Undo
             // 
             Undo.Name = "Undo";
+            Undo.ShortcutKeys = Keys.Control | Keys.Z;
             Undo.Size = new Size(224, 26);
             Undo.Text = "Undo";
             Undo.Click += Undo_Click;
@@ -103,8 +104,10 @@
             // Redo
             // 
             Redo.Name = "Redo";
+            Redo.ShortcutKeys = Keys.Control | Keys.Y;
             Redo.Size = new Size(224, 26);
             Redo.Text = "Redo";
+            Redo.Click += Redo_Click;
             // 
             // toolStrip1
             // 
