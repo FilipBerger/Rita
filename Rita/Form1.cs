@@ -242,6 +242,9 @@ namespace Rita
                     graphics = Graphics.FromImage(bitmap);
                     picBox.Image = bitmap;
                     picBox.Refresh();
+
+                    redoStack.Clear();
+                    undoStack.Clear();
                 }
             }
         }
