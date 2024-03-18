@@ -19,7 +19,7 @@ namespace Rita
         private Point startPoint, currentPoint;
         private Pen pen = new Pen(Color.Black, 1);
         private Pen eraser = new Pen(Color.White, 30);
-        private int toolIndex = 0;
+        private Tool activeTool = Tool.Pen;
         private Shape? shape = null;
         private Stack<Bitmap> undoStack = new Stack<Bitmap>();
         private Stack<Bitmap> redoStack = new Stack<Bitmap>();
@@ -64,17 +64,17 @@ namespace Rita
             startPoint = e.Location;
             currentPoint = e.Location;
 
-            if (toolIndex == 2)
+            if (activeTool == Tool.Circle)
             {
                 shape = new Circle { StartPoint = startPoint };
             }
 
-            if (toolIndex == 3)
+            if (activeTool == Tool.Square)
             {
                 shape = new Square { StartPoint = startPoint };
             }
 
-            if (toolIndex == 4)
+            if (activeTool == Tool.Triangle)
             {
                 shape = new Triangle { StartPoint = startPoint };
             }
@@ -84,13 +84,13 @@ namespace Rita
         {
             if (isDrawing)
             {
-                if (toolIndex == 0)
+                if (activeTool == Tool.Pen)
                 {
                     startPoint = e.Location;
                     graphics.DrawLine(pen, startPoint, currentPoint);
                     currentPoint = startPoint;
                 }
-                if (toolIndex == 1)
+                if (activeTool == Tool.Eraser)
                 {
                     startPoint = e.Location;
                     graphics.DrawLine(eraser, startPoint, currentPoint);
@@ -117,12 +117,12 @@ namespace Rita
 
         private void btnPen_Click(object sender, EventArgs e)
         {
-            toolIndex = 0;
+            activeTool = Tool.Pen;
         }
 
-        private void toolStripButton2_Click(object sender, EventArgs e)
+        private void btnEraser_Click(object sender, EventArgs e)
         {
-            toolIndex = 1;
+            activeTool = Tool.Eraser;
         }
 
         private void ChangePenColor(Color color)
@@ -181,7 +181,7 @@ namespace Rita
 
         private void btnCircle_Click(object sender, EventArgs e)
         {
-            toolIndex = 2;
+            activeTool = Tool.Circle;
         }
 
         private void picBox_Paint(object sender, PaintEventArgs e)
@@ -194,12 +194,12 @@ namespace Rita
 
         private void btnSquare_Click(object sender, EventArgs e)
         {
-            toolIndex = 3;
+            activeTool = Tool.Square;
         }
 
         private void btnTriangle_Click(object sender, EventArgs e)
         {
-            toolIndex = 4;
+            activeTool = Tool.Triangle;
         }
 
         private void Undo_Click(object sender, EventArgs e)
@@ -212,7 +212,7 @@ namespace Rita
             PerformRedo();
         }
 
-        private void Save_Click(object sender, EventArgs e)
+        private void SaveToFile()
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
@@ -225,8 +225,12 @@ namespace Rita
                 }
             }
         }
+        private void Save_Click(object sender, EventArgs e)
+        {
+            SaveToFile();
+        }
 
-        private void Open_Click(object sender, EventArgs e)
+        private void OpenFile()
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
@@ -237,7 +241,8 @@ namespace Rita
                     Bitmap loadedImage = new Bitmap(openFileDialog.FileName);
 
                     if (bitmap != null)
-                    bitmap.Dispose();
+                        bitmap.Dispose();
+
                     bitmap = loadedImage;
                     graphics = Graphics.FromImage(bitmap);
                     picBox.Image = bitmap;
@@ -247,6 +252,10 @@ namespace Rita
                     undoStack.Clear();
                 }
             }
+        }
+        private void Open_Click(object sender, EventArgs e)
+        {
+            OpenFile();
         }
     }
 }
