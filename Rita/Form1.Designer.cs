@@ -46,7 +46,7 @@
             btnBlue = new ToolStripButton();
             btnMagenta = new ToolStripButton();
             btnPen = new ToolStripButton();
-            toolStripButton2 = new ToolStripButton();
+            btnEraser = new ToolStripButton();
             btnCircle = new ToolStripButton();
             btnSquare = new ToolStripButton();
             btnTriangle = new ToolStripButton();
@@ -78,7 +78,7 @@
             // 
             Save.Name = "Save";
             Save.ShortcutKeys = Keys.Control | Keys.S;
-            Save.Size = new Size(224, 26);
+            Save.Size = new Size(181, 26);
             Save.Text = "Save";
             Save.Click += Save_Click;
             // 
@@ -86,7 +86,7 @@
             // 
             Open.Name = "Open";
             Open.ShortcutKeys = Keys.Control | Keys.O;
-            Open.Size = new Size(224, 26);
+            Open.Size = new Size(181, 26);
             Open.Text = "Open";
             Open.Click += Open_Click;
             // 
@@ -116,7 +116,7 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(20, 20);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnBlack, btnRed, btnOrange, btnYellow, btnGreen, btnCyan, btnBlue, btnMagenta, btnPen, toolStripButton2, btnCircle, btnSquare, btnTriangle, btnClear });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnBlack, btnRed, btnOrange, btnYellow, btnGreen, btnCyan, btnBlue, btnMagenta, btnPen, btnEraser, btnCircle, btnSquare, btnTriangle, btnClear });
             toolStrip1.Location = new Point(0, 28);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(800, 27);
@@ -213,14 +213,14 @@
             btnPen.Text = "Pen";
             btnPen.Click += btnPen_Click;
             // 
-            // toolStripButton2
+            // btnEraser
             // 
-            toolStripButton2.Image = (Image)resources.GetObject("toolStripButton2.Image");
-            toolStripButton2.ImageTransparentColor = Color.Magenta;
-            toolStripButton2.Name = "toolStripButton2";
-            toolStripButton2.Size = new Size(73, 24);
-            toolStripButton2.Text = "Eraser";
-            toolStripButton2.Click += toolStripButton2_Click;
+            btnEraser.Image = (Image)resources.GetObject("btnEraser.Image");
+            btnEraser.ImageTransparentColor = Color.Magenta;
+            btnEraser.Name = "btnEraser";
+            btnEraser.Size = new Size(73, 24);
+            btnEraser.Text = "Eraser";
+            btnEraser.Click += btnEraser_Click;
             // 
             // btnCircle
             // 
@@ -316,7 +316,7 @@
         private ToolStripMenuItem Redo;
         private PictureBox picBox;
         private ToolStripButton btnPen;
-        private ToolStripButton toolStripButton2;
+        private ToolStripButton btnEraser;
         private ToolStripButton btnClear;
     }
 }
